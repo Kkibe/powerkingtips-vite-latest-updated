@@ -38,7 +38,7 @@ export default function CardPayment({ setUserData }) {
     reference: (new Date()).getTime().toString(),
     email: currentUser.email,
     amount: price * 100,
-    publicKey: 'pk_live_362b1c5a898c1cbcc3997049f738136211f625bf',
+    publicKey: 'pk_live_71bf88a41666c28d7e035b7086eddedda3ba8c47',
     currency: "KES",
     metadata: {
       name: currentUser.email,

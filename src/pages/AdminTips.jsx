@@ -22,9 +22,18 @@ export default function AdminTips() {
     const handleSubmit = (e) => {
         e.preventDefault()
         const d = new Date(time)
-        let date = d.toLocaleString().split(',')[0]
-        addTip({home, away, date, odd, pick, status, time:time.split("T")[1], won, premium, results}, setError, setLoading);
+        //let date = d.toLocaleString().split(',')[0]
+        // Format the date as "M/D/YYYY"
+        const date = new Intl.DateTimeFormat('en-US').format(d);
+        // Format the time as "HH:MM"
+        const timeOnly = d.toLocaleTimeString('en-US', {
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false,
+        });
+        addTip({home, away, date, odd, pick, status, time:timeOnly, won, premium, results}, setError, setLoading);
     }
+
 
     useEffect(() => {
         error && setTimeout(() => {
